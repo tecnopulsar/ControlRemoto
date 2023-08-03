@@ -1,0 +1,18 @@
+.control-dtv {
+  display: flex;
+  width: 298px;
+  height: 822px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+.case {
+  width: 298px;
+  height: 822px;
+  flex-shrink: 0;
+  position:relative;
+  border-radius: 42px;
+  border: 1px solid #000;
+  background: #f1f1f1;
+}

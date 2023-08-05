@@ -1,8 +1,13 @@
-# React + Vite
+# Control remoto directv - virtual - remote control directv
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto de virtualizacion de control remoto con React JS - aplicable a distintas interfaces de usuario
 
-Currently, two official plugins are available:
+Objetivo primario - aplicado a trabajar con:
+  
+- LIBERTY AV | IPEXAR-5000 Arranger Controller For Digi IP 5000
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Desarrollo: 
+- tecnopulsar@gmail.com
+- ingenieria@wetechar.com
+![controlremotodirectv](https://github.com/tecnopulsar/ControlRemoto/assets/59393765/7af9112d-eedf-4136-a7e7-959768e8d746)
+![Frame 12](https://github.com/tecnopulsar/ControlRemoto/assets/59393765/a3b5049b-8ea4-42ab-a7ab-8c703645740a)

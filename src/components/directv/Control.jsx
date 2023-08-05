@@ -1,3 +1,4 @@
+import { createContext, useContext, useEffect, useState } from "react";
 import Active from "./Active";
 import Back from "./Back";
 import Blue from "./Blue";
@@ -36,23 +37,29 @@ import Voldown from "./Voldown";
 import Volup from "./Volup";
 import Yellow from "./Yellow";
 import Dash from "./dash";
+import StateContext from "../../Context/StateContext";
+import Off from "./Off";
 
 const Control = () => {
+    const { stateControl, setStateControl } = useContext(StateContext)
     return (
-        <div className="control-dtv">
-            <div className="case">
-                <Tvinput/><Logo/><On/>
-                <Guide/><Active/><List/><Exit/>
-                <Left/><Up/><Select/><Right/><Down/>
-                <Back/><Menu/><Info/>
-                <Red/><Green/><Yellow/><Blue/>
-                <Volup/><Voldown/><Mute/><Prev/><Channelup/><Channeldown/>
-                <Nro1 /><Nro2 /><Nro3 />
-                <Nro4 /><Nro5 /><Nro6 />
-                <Nro7 /><Nro8 /><Nro9 />
-                <Dash /><Nro0 /><Enter />
+        <>
+            <div className="control-dtv">
+                <div className={`emitter ${(stateControl.sendCommand.length !== 0) ? 'emitter-on' : 'emitter-off'}`}>-</div>
+                <div className="case">
+                    <Tvinput /><Logo /><On /><Off />
+                    <Guide /><Active /><List /><Exit />
+                    <Left /><Up /><Select /><Right /><Down />
+                    <Back /><Menu /><Info />
+                    <Red /><Green /><Yellow /><Blue />
+                    <Volup /><Voldown /><Mute /><Prev /><Channelup /><Channeldown />
+                    <Nro1 /><Nro2 /><Nro3 />
+                    <Nro4 /><Nro5 /><Nro6 />
+                    <Nro7 /><Nro8 /><Nro9 />
+                    <Dash /><Nro0 /><Enter />
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

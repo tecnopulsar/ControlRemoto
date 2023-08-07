@@ -25,7 +25,7 @@ function Nro4() {
         <>
             <img
                 src={nro4}
-                onClick={() =>  handleClick('') }
+                onClick={() =>  handleClick('4') }
                 style={{ backgroundColor: isClick && 'gray', userSelect:'none', borderRadius: '20px', cursor: 'pointer', position: 'absolute', top: '623px', left: '45px' }} alt="" />
         </>
     )

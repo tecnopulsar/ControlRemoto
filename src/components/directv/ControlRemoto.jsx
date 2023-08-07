@@ -4,7 +4,7 @@ import Back from "./Back";
 import Blue from "./Blue";
 import Channeldown from "./Channeldown";
 import Channelup from "./Channelup";
-import "./Control.css";
+import "./ControlRemoto.css";
 import Down from "./Down";
 import Enter from "./Enter";
 import Exit from "./Exit";
@@ -40,7 +40,7 @@ import Dash from "./dash";
 import Off from "./Off";
 import StateContext, { stateControlInit } from "../../Context/StateContext";
 
-const Control = () => {
+const ControlRemoto = () => {
     const [cmdReady, setCmdReady] = useState(false)                     //Flag de comando listo para transmitirse
     const [displayList, setDisplayList] = useState(false)       //Clear Text info lista de botnes pulsados
     const [btnPress, setBtnPress] = useState(false)                     //Flag de boton pulsado
@@ -145,4 +145,4 @@ const Control = () => {
     );
 };
 
-export default Control;
+export default ControlRemoto;

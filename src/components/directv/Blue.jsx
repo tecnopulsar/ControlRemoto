@@ -1,40 +1,33 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect,useState } from 'react'
 import blue from './img/blue.svg'
 import StateContext from '../../Context/StateContext';
 
+
 function Blue() {
-    const { stateControl, setStateControl } = useContext(StateContext)
+    const { btnPress, setBtnPress, stateControl, setStateControl } = useContext(StateContext)
+    const [isClick, setIsClick] = useState(false)
 
-    const [isClick, setIsClick] = useState(false);
-
-
-    const handleClick = () => {
-        const btnPress = 'Blue'
-        let listPress = [btnPress];
-        if (!isNaN(btnPress)) {
-            switch (stateControl.listPress.length) {
-                case 1:
-                    if (isNaN(stateControl.listPress[0])) {
-                        listPress = [btnPress]
-                        break;
-                    }
-                case 2: case 3:
-                    listPress = stateControl.listPress.concat(btnPress);
-                    break;
-                default: break;
-            }
+    useEffect(()=>{
+        const idSetTimeout = setTimeout(()=>{setIsClick(false)},1000)
+        return ()=> {
+            clearTimeout(idSetTimeout)
         }
-        setStateControl({ ...stateControl, btnPress, listPress })
+    },[isClick])
+    
+
+    const handleClick = (btn) => {
         setIsClick(true);
-        setTimeout(() => setIsClick(false), 200)
+        setBtnPress(!btnPress);
+        const valBtnPress = btn;
+        setStateControl({ ...stateControl, valBtnPress })
     };
 
     return (
         <>
             <img
                 src={blue}
-                onClick={handleClick}
-                style={{ backgroundColor: isClick && 'gray', borderRadius: '20px', cursor: 'pointer', position: 'absolute', top: '368px', left: '212px' }} alt="" />
+                onClick={() => handleClick('Blue')}
+                style={{ backgroundColor: isClick && 'gray', userSelect:'none', borderRadius: '20px', cursor: 'pointer', position: 'absolute', top: '368px', left: '212px' }} alt="" />
         </>
     )
 }

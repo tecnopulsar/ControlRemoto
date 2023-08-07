@@ -1,40 +1,25 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect,useState } from 'react'
 import select from './img/select.svg'
 import StateContext from '../../Context/StateContext';
 
+
 function Select() {
-    const { stateControl, setStateControl } = useContext(StateContext)
+    const { setBtnPress, stateControl, setStateControl } = useContext(StateContext)
+    const [isClick, setIsClick] = useState(false)
 
-    const [isClick, setIsClick] = useState(false);
-
-
-    const handleClick = () => {
-        const btnPress = 'Select'
-        let listPress = [btnPress];
-        if (!isNaN(btnPress)) {
-            switch (stateControl.listPress.length) {
-                case 1:
-                    if (isNaN(stateControl.listPress[0])) {
-                        listPress = [btnPress]
-                        break;
-                    }
-                case 2: case 3:
-                    listPress = stateControl.listPress.concat(btnPress);
-                    break;
-                default: break;
-            }
-        }
-        setStateControl({ ...stateControl, btnPress, listPress })
+    const handleClick = (btn) => {
         setIsClick(true);
-        setTimeout(() => setIsClick(false), 200)
+        setTimeout(() => setIsClick(false), stateControl.config.ledFlashing)
+        setBtnPress(true);
+        const valBtnPress = btn;
+        setStateControl({ ...stateControl, valBtnPress })
     };
-
     return (
         <>
             <img
                 src={select}
-                onClick={handleClick}
-                style={{ backgroundColor: isClick && 'gray', borderRadius: '20px', cursor: 'pointer', position: 'absolute', top: '218px', left: '117px' }} alt="" />
+                onClick={() => handleClick('Select') }
+                style={{ backgroundColor: isClick && 'gray', userSelect:'none', borderRadius: '20px', cursor: 'pointer', position: 'absolute', top: '218px', left: '117px' }} alt="" />
         </>
     )
 }

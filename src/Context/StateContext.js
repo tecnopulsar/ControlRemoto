@@ -1,12 +1,16 @@
 import { createContext } from "react";
 
 export const stateControlInit = {
-  btnPress: "",
-  listPress:[],
-  modeSecuence: true,   //admite canales de hasta 4 numeros
-  sendCommand: []
+  valBtnPress: "",
+  listPress: [],
+  command: [],
+  commandSended: false, //El command[] fue enviado?
+  ledEmitting: false, //Luz testigo control remoto
+  config:{
+    ledFlashing:1000,
+  }
 };
 
-const StateContext = createContext();
+const StateContext = createContext(stateControlInit);
 
 export default StateContext;

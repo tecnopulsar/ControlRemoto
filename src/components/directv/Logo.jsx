@@ -6,7 +6,7 @@ function Logo() {
         <>
             <img
                 src={logo}
-                style={{position:'absolute', top: '30px', left:'116px'}} alt="" />
+                style={{userSelect:'none' ,position:'absolute', top: '30px', left:'116px'}} alt="" />
         </>
     )
 }

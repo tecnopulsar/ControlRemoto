@@ -4,13 +4,20 @@ import StateContext from '../../Context/StateContext';
 
 
 function Yellow() {
-    const { setBtnPress, stateControl, setStateControl } = useContext(StateContext)
+    const { btnPress, setBtnPress, stateControl, setStateControl } = useContext(StateContext)
     const [isClick, setIsClick] = useState(false)
+
+    useEffect(()=>{
+        const idSetTimeout = setTimeout(()=>{setIsClick(false)},1000)
+        return ()=> {
+            clearTimeout(idSetTimeout)
+        }
+    },[isClick])
+    
 
     const handleClick = (btn) => {
         setIsClick(true);
-        setTimeout(() => setIsClick(false), stateControl.config.ledFlashing)
-        setBtnPress(true);
+        setBtnPress(!btnPress);
         const valBtnPress = btn;
         setStateControl({ ...stateControl, valBtnPress })
     };

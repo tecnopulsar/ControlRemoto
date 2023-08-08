@@ -126,7 +126,7 @@ const ControlRemoto = () => {
 
     return (
         <StateContext.Provider value={{ btnPress, setBtnPress, stateControl, setStateControl }}>
-            <div className="control-dtv" onDoubleClick={()=>console.log('dobleclick')}>
+            <div className="control-dtv">
                 <div className="case">
                     {displayList && <h2 className="display">{stateControl.listPress}</h2>}
                     <Tvinput /><Logo /><On /><Off />

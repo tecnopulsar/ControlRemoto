@@ -1,13 +1,12 @@
-import './App.css'
+import ButtonAppBar from './components/MUI/ButtonAppBar'
 import ControlRemoto from './components/directv/ControlRemoto'
 
 function App() {
 
   return (
     <>
-      <div>
-        <ControlRemoto />
-      </div>
+        <ButtonAppBar/>
+
 
     </>
   )

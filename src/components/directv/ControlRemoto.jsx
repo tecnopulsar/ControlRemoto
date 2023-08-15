@@ -38,13 +38,14 @@ import Volup from "./Volup";
 import Yellow from "./Yellow";
 import Dash from "./dash";
 import Off from "./Off";
-import StateContext, { stateControlInit } from "../../Context/StateContext";
+// import StateContext, { stateControlInit } from "../../Context/StateContext";
+import BotonContext, { botonPressedlInit } from "../../Context/BotonContext";
 
 const ControlRemoto = () => {
     const [cmdReady, setCmdReady] = useState(false)                     //Flag de comando listo para transmitirse
     const [displayList, setDisplayList] = useState(false)       //Clear Text info lista de botnes pulsados
     const [btnPress, setBtnPress] = useState(false)                     //Flag de boton pulsado
-    const [stateControl, setStateControl] = useState(stateControlInit)
+    // const [stateControl, setStateControl] = useState(stateControlInit)
 
     useEffect(() => {
         let valBtnPress = '';
@@ -125,7 +126,8 @@ const ControlRemoto = () => {
     }, [btnPress])
 
     return (
-        <StateContext.Provider value={{ btnPress, setBtnPress, stateControl, setStateControl }}>
+        // <StateContext.Provider value={{ btnPress, setBtnPress, stateControl, setStateControl }}>
+        <BotonContext.Provider value={{ btnPress, setBtnPress }}>
             <div className="control-dtv">
                 <div className="case">
                     {displayList && <h2 className="display">{stateControl.listPress}</h2>}
@@ -141,7 +143,7 @@ const ControlRemoto = () => {
                     <Dash /><Nro0 /><Enter />
                 </div>
             </div>
-        </StateContext.Provider>
+        </BotonContext.Provider>
     );
 };
 

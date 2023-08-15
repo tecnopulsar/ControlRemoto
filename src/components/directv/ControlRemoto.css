@@ -22,8 +22,8 @@
 
 .display {
   position: absolute;
-  top: -50px;
-  left:auto;
+  top: 744px;
+  left:50px;
   user-select: none,
 }
 

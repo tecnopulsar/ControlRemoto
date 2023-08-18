@@ -1,17 +1,18 @@
 import StateContext, { stateControlInit } from './components/directv/Context/StateContext';
 import React, { useState } from 'react';
-import ControlCanales from './components/directv/logica/controlCanales';
 import ControlRemoto from './components/directv/controlRemoto/ControlRemoto'
 import Canales from './components/directv/canales/Canales';
+import { Box } from '@mui/material';
 
 
 export default function App() {
   const [stateControl, setStateControl] = useState(stateControlInit)
   return (
     <StateContext.Provider value={{ stateControl, setStateControl }}>
-      {/* <ControlRemoto /> */}
-      {/* <ControlCanales /> */}
-      <Canales/>
+      <Box sx={{display:'flex', flexDirection:'row',}}>
+        <Canales />
+        <ControlRemoto />
+      </Box>
     </StateContext.Provider>
   );
 }

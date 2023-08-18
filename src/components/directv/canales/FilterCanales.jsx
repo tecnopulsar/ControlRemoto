@@ -21,4 +21,4 @@ export default function FilterCanales({setFilterSelect}) {
 }
 
 // Categorias de canales
-const categorias = [ 'deportes', 'hd','premium'];
+const categorias = [ 'Deportes', 'HD','PREMIUM'];

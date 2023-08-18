@@ -38,7 +38,7 @@ import img_1654 from "./img/1654.png";
 import img_1677 from "./img/1677.png";
 
 export const canales = {
-  deportes: [
+  Deportes: [
     {
       ch_654: {
         name: "DEPORTV",
@@ -64,7 +64,7 @@ export const canales = {
       ch_620: {
         name: "DSPORTS FIGHT",
         nro: 620,
-        img: { img_620 },
+        img:  img_620 ,
       },
     },
     {
@@ -92,7 +92,7 @@ export const canales = {
       ch_623: {
         name: "ESPN 3",
         nro: 623,
-        img: { img_623 },
+        img:  img_623 ,
       },
     },
     {
@@ -152,7 +152,7 @@ export const canales = {
       },
     },
   ],
-  hd: [
+  HD: [
     {
       ch_1654: {
         name: "DEPORTV HD",
@@ -280,7 +280,7 @@ export const canales = {
       },
     },
   ],
-  premium: [
+  PREMIUM: [
     {
       ch_604: {
         name: "ESPN Premium",

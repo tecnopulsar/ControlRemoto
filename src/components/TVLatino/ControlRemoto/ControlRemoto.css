@@ -1,0 +1,13 @@
+.control-container {
+  display: flex;
+  width: 229px;
+  height: 702px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  user-select: none;  
+  background-image: url('./img/Case.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}

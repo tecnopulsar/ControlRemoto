@@ -6,25 +6,10 @@
   justify-content: center;
   align-items: center;
   background: #fff;
-  user-select: none,
-}
-.case {
-  width: 298px;
-  height: 800px;
-  flex-shrink: 0;
-  position:relative;
-  border-radius: 42px;
-  border: 1px solid #000;
-  background: #f1f1f1;
-  user-select: none,
-
-}
-
-.display {
-  position: absolute;
-  top: 744px;
-  left:50px;
-  user-select: none,
+  user-select: none;
+  background-image: url('./img/Case.svg');
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .emitter{

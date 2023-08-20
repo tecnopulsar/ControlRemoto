@@ -4,15 +4,15 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import StateContext from '../Context/StateContext';
+import StateContext from '../../Context/StateContext';
 
 export default function CardCanal({ canal }) {
     const { name, nro, img } = canal;
-    const {stateControl, setStateControl} = React.useContext(StateContext)
+    const { stateControl, setStateControl } = React.useContext(StateContext)
 
-    const   handleClick = ()=>{
+    const handleClick = () => {
         // alert(`canal ${name} numero ${nro} fue elegido`)
-        setStateControl({...stateControl, command:[nro]})
+        setStateControl({ ...stateControl, command: [nro] })
     }
 
     return (

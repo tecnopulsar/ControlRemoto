@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import nro5 from './img/5.svg'
-import StateContext from '../Context/StateContext';
+import StateContext from '../../Context/StateContext';
 import BotonContext from '../Context/BotonContext'
 
 

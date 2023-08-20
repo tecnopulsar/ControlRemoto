@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import active from './img/active.svg'
-import StateContext from '../Context/StateContext';
+import StateContext from '../../Context/StateContext';
 import BotonContext from '../Context/BotonContext'
 
 function Active() {

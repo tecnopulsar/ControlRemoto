@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import channelup from './img/channelup.svg'
-import StateContext from '../Context/StateContext';
+import StateContext from '../../Context/StateContext';
 import BotonContext from '../Context/BotonContext'
 
 

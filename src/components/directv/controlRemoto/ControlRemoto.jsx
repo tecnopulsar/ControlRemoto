@@ -37,7 +37,7 @@ import Yellow from "./Yellow";
 import Dash from "./dash";
 import Off from "./Off";
 import Tvinput from "./Tvinput";
-import StateContext from "../Context/StateContext";
+import StateContext from "../../Context/StateContext";
 import BotonContext, { botonPressedInit } from '../Context/BotonContext'
 import img_case from './img/case.svg'
 import { Box } from "@mui/material";
@@ -128,7 +128,7 @@ const ControlRemoto = () => {
     }, [btnPress])
 
     const styleCase = {
-        position:'relative',
+        position: 'relative',
         width: '298px',
         height: '800px',
         border: '2xp solid red',
@@ -139,7 +139,7 @@ const ControlRemoto = () => {
 
     return (
         <BotonContext.Provider value={{ btnPress, setBtnPress }}>
-            < Box sx={ styleCase }>
+            < Box sx={styleCase}>
                 <Tvinput /><Logo /><On /><Off />
                 <Guide /><Active /><List /><Exit />
                 <Left /><Up /><Select /><Right /><Down />

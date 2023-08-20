@@ -6,7 +6,7 @@ import { canalesTV } from '../../canalesTV/DBcanalesTV'
 import CardCanal from './CardCanal'
 import FilterCanales from './FilterCanales';
 import { Typography } from '@mui/material';
-import StateContext from '../Context/StateContext';
+import StateContext from '../../Context/StateContext';
 
 function Canales() {
   const canalInit = canalesTV.DirecTV.Deportes[0]

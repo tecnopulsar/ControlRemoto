@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import blue from './img/blue.svg'
- import StateContext from '../Context/StateContext';
+import StateContext from '../Context/StateContext';
 import BotonContext from '../Context/BotonContext'
 
 
@@ -29,8 +29,10 @@ function Blue() {
             <img
                 src={blue}
                 onClick={() => handleClick('Blue')}
-                style={{ backgroundColor: isClick && 'gray', userSelect: 'none', 
-                borderRadius: '20px', cursor: 'pointer', position: 'absolute', top: '368px', left: '212px' }} 
+                style={{
+                    border: isClick && '2px solid red', userSelect: 'none',
+                    borderRadius: '20px', cursor: 'pointer', position: 'absolute', top: '368px', left: '212px'
+                }}
                 alt="" />
         </>
     )

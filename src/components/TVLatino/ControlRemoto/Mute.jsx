@@ -22,12 +22,13 @@ function Mute() {
         const valBtnPress = btn;
         setStateControl({ ...stateControl, valBtnPress })
     };
+    
     return (
         <>
             <img
                 src={mute}
                 onClick={() =>  handleClick('Mute') }
-                style={{ backgroundColor: isClick && 'gray', userSelect:'none', borderRadius: '0px', 
+                style={{border: isClick && '2px solid red',  userSelect:'none', borderRadius: '0px', 
                 cursor: 'pointer', position: 'absolute', top: '43px', left: '158px' }} alt="" />
         </>
     )

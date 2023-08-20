@@ -1,6 +1,6 @@
-import React, { useContext, useEffect,useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import channelup from './img/channelup.svg'
- import StateContext from '../Context/StateContext';
+import StateContext from '../Context/StateContext';
 import BotonContext from '../Context/BotonContext'
 
 
@@ -9,13 +9,13 @@ function Channelup() {
     const { btnPress, setBtnPress } = useContext(BotonContext)
     const [isClick, setIsClick] = useState(false)
 
-    useEffect(()=>{
-        const idSetTimeout = setTimeout(()=>{setIsClick(false)},1000)
-        return ()=> {
+    useEffect(() => {
+        const idSetTimeout = setTimeout(() => { setIsClick(false) }, 1000)
+        return () => {
             clearTimeout(idSetTimeout)
         }
-    },[isClick])
-    
+    }, [isClick])
+
 
     const handleClick = (btn) => {
         setIsClick(true);
@@ -27,9 +27,11 @@ function Channelup() {
         <>
             <img
                 src={channelup}
-                onClick={() =>  handleClick('Channelup') }
-                style={{ backgroundColor: isClick && 'gray', userSelect:'none', borderRadius: '0px', 
-                cursor: 'pointer', position: 'absolute', top: '132px', left: '30px' }} alt="" />
+                onClick={() => handleClick('Channelup')}
+                style={{
+                    border: isClick && '2px solid red', userSelect: 'none', borderRadius: '0px',
+                    cursor: 'pointer', position: 'absolute', top: '132px', left: '30px'
+                }} alt="" />
         </>
     )
 }

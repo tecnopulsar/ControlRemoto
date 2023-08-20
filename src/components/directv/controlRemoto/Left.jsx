@@ -1,6 +1,6 @@
-import React, { useContext, useEffect,useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import left from './img/left.svg'
- import StateContext from '../Context/StateContext';
+import StateContext from '../Context/StateContext';
 import BotonContext from '../Context/BotonContext'
 
 
@@ -9,13 +9,13 @@ function Left() {
     const { btnPress, setBtnPress } = useContext(BotonContext)
     const [isClick, setIsClick] = useState(false)
 
-    useEffect(()=>{
-        const idSetTimeout = setTimeout(()=>{setIsClick(false)},1000)
-        return ()=> {
+    useEffect(() => {
+        const idSetTimeout = setTimeout(() => { setIsClick(false) }, 1000)
+        return () => {
             clearTimeout(idSetTimeout)
         }
-    },[isClick])
-    
+    }, [isClick])
+
 
     const handleClick = (btn) => {
         setIsClick(true);
@@ -27,9 +27,11 @@ function Left() {
         <>
             <img
                 src={left}
-                onClick={() =>  handleClick('Left') }
-                style={{ backgroundColor: isClick && 'gray', userSelect:'none', borderRadius: '20px', 
-                cursor: 'pointer', position: 'absolute', top: '196px', left: '65px' }} alt="" />
+                onClick={() => handleClick('Left')}
+                style={{
+                    border: isClick && '2px solid red', userSelect: 'none', borderRadius: '20px',
+                    cursor: 'pointer', position: 'absolute', top: '196px', left: '65px'
+                }} alt="" />
         </>
     )
 }

@@ -28,8 +28,10 @@ function Tvinput() {
             <img
                 src={tvinput}
                 onClick={() => handleClick('Tvinput')}
-                style={{ backgroundColor: isClick && 'gray', userSelect: 'none', borderRadius: '5px', 
-                cursor: 'pointer', position: 'absolute', top: '10px', left: '26px' }} alt="" />
+                style={{
+                    border: isClick && '2px solid red', userSelect: 'none', borderRadius: '5px',
+                    cursor: 'pointer', position: 'absolute', top: '10px', left: '26px'
+                }} alt="" />
         </>
     )
 }

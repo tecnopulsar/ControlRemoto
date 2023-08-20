@@ -1,6 +1,6 @@
-import React, { useContext, useEffect,useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import yellow from './img/yellow.svg'
- import StateContext from '../Context/StateContext';
+import StateContext from '../Context/StateContext';
 import BotonContext from '../Context/BotonContext'
 
 
@@ -9,13 +9,13 @@ function Yellow() {
     const { btnPress, setBtnPress } = useContext(BotonContext)
     const [isClick, setIsClick] = useState(false)
 
-    useEffect(()=>{
-        const idSetTimeout = setTimeout(()=>{setIsClick(false)},1000)
-        return ()=> {
+    useEffect(() => {
+        const idSetTimeout = setTimeout(() => { setIsClick(false) }, 1000)
+        return () => {
             clearTimeout(idSetTimeout)
         }
-    },[isClick])
-    
+    }, [isClick])
+
 
     const handleClick = (btn) => {
         setIsClick(true);
@@ -27,9 +27,11 @@ function Yellow() {
         <>
             <img
                 src={yellow}
-                onClick={() => handleClick('Yellow') }
-                style={{ backgroundColor: isClick && 'gray', userSelect:'none', borderRadius: '20px', 
-                cursor: 'pointer', position: 'absolute', top: '392px', left: '160px' }} alt="" />
+                onClick={() => handleClick('Yellow')}
+                style={{
+                    border: isClick && '2px solid red', userSelect: 'none', borderRadius: '20px',
+                    cursor: 'pointer', position: 'absolute', top: '392px', left: '160px'
+                }} alt="" />
         </>
     )
 }

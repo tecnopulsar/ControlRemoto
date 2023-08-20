@@ -28,8 +28,10 @@ function Active() {
             <img
                 src={active}
                 onClick={() => handleClick('Active')}
-                style={{ backgroundColor: isClick && 'gray', userSelect: 'none', cursor: 'pointer', 
-                borderRadius: '20px', position: 'absolute', top: '115px', left: '76px' }} alt="" />
+                style={{
+                    border: isClick && '2px solid red', userSelect: 'none', cursor: 'pointer',
+                    borderRadius: '20px', position: 'absolute', top: '115px', left: '76px'
+                }} alt="" />
         </>
     )
 }

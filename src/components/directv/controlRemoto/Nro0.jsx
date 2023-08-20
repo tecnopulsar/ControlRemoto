@@ -8,13 +8,13 @@ function Nro0() {
     const { btnPress, setBtnPress } = useContext(BotonContext)
     const [isClick, setIsClick] = useState(false)
 
-    useEffect(()=>{
-        const idSetTimeout = setTimeout(()=>{setIsClick(false)},1000)
-        return ()=> {
+    useEffect(() => {
+        const idSetTimeout = setTimeout(() => { setIsClick(false) }, 1000)
+        return () => {
             clearTimeout(idSetTimeout)
         }
-    },[isClick])
-    
+    }, [isClick])
+
 
     const handleClick = (btn) => {
         setIsClick(true);
@@ -26,9 +26,11 @@ function Nro0() {
         <>
             <img
                 src={nro0}
-                onClick={() =>  handleClick('0') }
-                style={{ backgroundColor: isClick && 'gray', userSelect:'none', borderRadius: '20px', 
-                cursor: 'pointer', position: 'absolute', top: '727px', left: '121px' }} alt="" />
+                onClick={() => handleClick('0')}
+                style={{
+                    border: isClick && '2px solid red', userSelect: 'none', borderRadius: '20px',
+                    cursor: 'pointer', position: 'absolute', top: '727px', left: '121px'
+                }} alt="" />
         </>
     )
 }

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import on from './img/on.svg'
- import StateContext from '../Context/StateContext';
+import StateContext from '../Context/StateContext';
 import BotonContext from '../Context/BotonContext'
 
 
@@ -9,13 +9,13 @@ function On() {
     const { btnPress, setBtnPress } = useContext(BotonContext)
     const [isClick, setIsClick] = useState(false)
 
-    useEffect(()=>{
-        const idSetTimeout = setTimeout(()=>{setIsClick(false)},1000)
-        return ()=> {
+    useEffect(() => {
+        const idSetTimeout = setTimeout(() => { setIsClick(false) }, 1000)
+        return () => {
             clearTimeout(idSetTimeout)
         }
-    },[isClick])
-    
+    }, [isClick])
+
 
     const handleClick = (btn) => {
         setIsClick(true);
@@ -27,9 +27,11 @@ function On() {
         <>
             <img
                 src={on}
-                onClick={() =>  handleClick('On') }
-                style={{ backgroundColor: isClick && 'gray', userSelect:'none', borderRadius: '20px', 
-                cursor: 'pointer', position: 'absolute', top: '30px', left: '230px' }} alt="" />
+                onClick={() => handleClick('On')}
+                style={{
+                    border: isClick && '2px solid red', userSelect: 'none', borderRadius: '20px',
+                    cursor: 'pointer', position: 'absolute', top: '30px', left: '230px'
+                }} alt="" />
         </>
     )
 }

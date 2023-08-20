@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import off from './img/off.svg'
- import StateContext from '../Context/StateContext';
+import StateContext from '../Context/StateContext';
 import BotonContext from '../Context/BotonContext'
 
 
@@ -28,8 +28,10 @@ function Off() {
             <img
                 src={off}
                 onClick={() => handleClick('Off')}
-                style={{ backgroundColor: isClick && 'gray', userSelect: 'none', borderRadius: '20px', 
-                cursor: 'pointer', position: 'absolute', top: '86px', left: '233px' }} alt="" />
+                style={{
+                    border: isClick && '2px solid red', userSelect: 'none', borderRadius: '20px',
+                    cursor: 'pointer', position: 'absolute', top: '86px', left: '233px'
+                }} alt="" />
         </>
     )
 }

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import nro4 from './img/4.svg'
- import StateContext from '../Context/StateContext';
+import StateContext from '../Context/StateContext';
 import BotonContext from '../Context/BotonContext'
 
 
@@ -9,13 +9,13 @@ function Nro4() {
     const { btnPress, setBtnPress } = useContext(BotonContext)
     const [isClick, setIsClick] = useState(false)
 
-    useEffect(()=>{
-        const idSetTimeout = setTimeout(()=>{setIsClick(false)},1000)
-        return ()=> {
+    useEffect(() => {
+        const idSetTimeout = setTimeout(() => { setIsClick(false) }, 1000)
+        return () => {
             clearTimeout(idSetTimeout)
         }
-    },[isClick])
-    
+    }, [isClick])
+
 
     const handleClick = (btn) => {
         setIsClick(true);
@@ -27,9 +27,11 @@ function Nro4() {
         <>
             <img
                 src={nro4}
-                onClick={() =>  handleClick('4') }
-                style={{ backgroundColor: isClick && 'gray', userSelect:'none', borderRadius: '20px', 
-                cursor: 'pointer', position: 'absolute', top: '623px', left: '45px' }} alt="" />
+                onClick={() => handleClick('4')}
+                style={{
+                    border: isClick && '2px solid red', userSelect: 'none', borderRadius: '20px',
+                    cursor: 'pointer', position: 'absolute', top: '623px', left: '45px'
+                }} alt="" />
         </>
     )
 }

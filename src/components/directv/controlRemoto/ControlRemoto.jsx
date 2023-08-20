@@ -1,5 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import "./ControlRemoto.css";
+import { useContext, useEffect, useState } from "react";
 import Active from "./Active";
 import Back from "./Back";
 import Blue from "./Blue";
@@ -39,13 +38,15 @@ import Dash from "./dash";
 import Off from "./Off";
 import Tvinput from "./Tvinput";
 import StateContext from "../Context/StateContext";
-import BotonContext, {botonPressedInit} from '../Context/BotonContext'
+import BotonContext, { botonPressedInit } from '../Context/BotonContext'
+import img_case from './img/case.svg'
+import { Box } from "@mui/material";
 
 const ControlRemoto = () => {
     const [cmdReady, setCmdReady] = useState(false)                     //Flag de comando listo para transmitirse
     const [displayList, setDisplayList] = useState(false)       //Clear Text info lista de botnes pulsados
     const [btnPress, setBtnPress] = useState(botonPressedInit)                     //Flag de boton pulsado
-    const {stateControl, setStateControl} = useContext(StateContext)
+    const { stateControl, setStateControl } = useContext(StateContext)
 
 
     useEffect(() => {
@@ -126,23 +127,31 @@ const ControlRemoto = () => {
         return () => clearTimeout(idSetTimeout)
     }, [btnPress])
 
+    const styleCase = {
+        position:'relative',
+        width: '298px',
+        height: '800px',
+        border: '2xp solid red',
+        userSelect: 'none',
+        backgroundImage: `url(${img_case})`,
+        backgroundRepeat: 'no-repeat',
+    }
+
     return (
         <BotonContext.Provider value={{ btnPress, setBtnPress }}>
-            <div className="control-dtv">
-                <div className="case">
-                    {displayList && <h2 className="display">{stateControl.listPress}</h2>}
-                    <Tvinput /><Logo /><On /><Off />
-                    <Guide /><Active /><List /><Exit />
-                    <Left /><Up /><Select /><Right /><Down />
-                    <Back /><Menu /><Info />
-                    <Red /><Green /><Yellow /><Blue />
-                    <Volup /><Voldown /><Mute /><Prev /><Channelup /><Channeldown />
-                    <Nro1 /><Nro2 /><Nro3 />
-                    <Nro4 /><Nro5 /><Nro6 />
-                    <Nro7 /><Nro8 /><Nro9 />
-                    <Dash /><Nro0 /><Enter />
-                </div>
-            </div>
+            < Box sx={ styleCase }>
+                <Tvinput /><Logo /><On /><Off />
+                <Guide /><Active /><List /><Exit />
+                <Left /><Up /><Select /><Right /><Down />
+                <Back /><Menu /><Info />
+                <Red /><Green /><Yellow /><Blue />
+                <Volup /><Voldown /><Mute /><Prev /><Channelup /><Channeldown />
+                <Nro1 /><Nro2 /><Nro3 />
+                <Nro4 /><Nro5 /><Nro6 />
+                <Nro7 /><Nro8 /><Nro9 />
+                <Dash /><Nro0 /><Enter />
+
+            </Box>
         </BotonContext.Provider>
     );
 };

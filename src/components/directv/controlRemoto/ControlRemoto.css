@@ -1,16 +1,4 @@
-.control-dtv {
-  display: flex;
-  width: 298px;
-  height: 800px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
-  user-select: none;
-  background-image: url('./img/Case.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-}
+
 
 .emitter{
   margin-bottom: 0;

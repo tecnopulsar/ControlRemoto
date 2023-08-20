@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import tvinput from './img/tvinput.svg'
-import StateContext from '../Context/StateContext'
+import StateContext from '../Context/StateContext';
 import BotonContext from '../Context/BotonContext'
 
 
@@ -27,10 +27,15 @@ function Tvinput() {
         <>
             <img
                 src={tvinput}
-                onClick={() => handleClick('Tvinput')}
+                onClick={() => handleClick('Select')}
                 style={{
-                    border: isClick && '2px solid red', userSelect: 'none', borderRadius: '5px',
-                    cursor: 'pointer', position: 'absolute', top: '10px', left: '26px'
+                    border: isClick && '2px solid red',
+                    userSelect: 'none',
+                    borderRadius: '0px',
+                    cursor: 'pointer',
+                    position: 'absolute',
+                    top: '10px',
+                    left: '26px'
                 }} alt="" />
         </>
     )

@@ -4,16 +4,21 @@ import ControlRemotoDirectv from './components/directv/controlRemoto/ControlRemo
 import ControlRemotoTVLatino from './components/TVLatino/ControlRemoto/ControlRemoto'
 import React, { useState } from 'react';
 import { Box } from '@mui/material';
+import NodeMCU from './components/Interfase/NodeMCU/NodeMCU';
 
 
 export default function App() {
   const [stateControl, setStateControl] = useState(stateControlInit)
+  const {proveedor} = stateControl
+  
+
   return (
     <StateContext.Provider value={{ stateControl, setStateControl }}>
       <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-        {/* <ControlRemotoDirectv /> */}
-        <ControlRemotoTVLatino />
+        {proveedor==='directv'&& <ControlRemotoDirectv />}
+        {proveedor==='tvlatino'&& <ControlRemotoTVLatino />}
         {/* <Canales /> */}
+        <NodeMCU/>
       </Box>
     </StateContext.Provider>
   );

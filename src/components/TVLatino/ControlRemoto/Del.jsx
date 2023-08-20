@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import guide from './img/del.svg'
+import del from './img/del.svg'
 import StateContext from '../../Context/StateContext';
 import BotonContext from '../Context/BotonContext'
 
@@ -26,8 +26,8 @@ function Guide() {
     return (
         <>
             <img
-                src={guide}
-                onClick={() => handleClick('Guide')}
+                src={del}
+                onClick={() => handleClick('Del')}
                 style={{
                     border: isClick && '2px solid red', userSelect: 'none', borderRadius: '0px',
                     cursor: 'pointer', position: 'absolute', top: '615px', left: '147px'

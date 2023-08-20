@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import select from './img/ok.svg'
+import ok from './img/ok.svg'
 import StateContext from '../../Context/StateContext';
 import BotonContext from '../Context/BotonContext'
 
@@ -26,8 +26,8 @@ function Select() {
     return (
         <>
             <img
-                src={select}
-                onClick={() => handleClick('Select')}
+                src={ok}
+                onClick={() => handleClick('Ok')}
                 style={{
                     border: isClick && '2px solid red',
                     userSelect: 'none',

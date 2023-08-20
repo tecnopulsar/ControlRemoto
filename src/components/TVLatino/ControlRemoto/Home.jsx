@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import enter from './img/home.svg'
+import home from './img/home.svg'
 import StateContext from '../../Context/StateContext';
 import BotonContext from '../Context/BotonContext'
 
@@ -26,8 +26,8 @@ function Enter() {
     return (
         <>
             <img
-                src={enter}
-                onClick={() => handleClick('Enter')}
+                src={home}
+                onClick={() => handleClick('Home')}
                 style={{
                     border: isClick && '2px solid red', userSelect: 'none', borderRadius: '20px',
                     cursor: 'pointer', position: 'absolute', top: '407px', left: '24px'

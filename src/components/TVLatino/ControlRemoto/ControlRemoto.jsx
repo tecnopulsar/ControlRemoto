@@ -42,79 +42,55 @@ const ControlRemoto = () => {
 
 
     useEffect(() => {
-        let valBtnPress = '';
-        let listPress = [];
-        let lengthList = stateControl.listPress.length
-        let command = [];
-        let feedback = '';
-        let idSetTimeout;                      //Para permitir el reset del btnPress
-        if (isNaN(stateControl.valBtnPress)) {
-            let lengthList = stateControl.listPress.length
-            switch (lengthList) {
-                case 0: case 1: case 2: case 3: case 4:
-                    listPress = [stateControl.valBtnPress]             //La lista se limpia por interfaz grafica
-                    command = [stateControl.valBtnPress]
-                    valBtnPress = '';
-                    feedback = '';
-                    setStateControl({ ...stateControl, valBtnPress, listPress, command, feedback })
-                    idSetTimeout = setTimeout(() => {
-                        listPress = [];
-                        setStateControl({ ...stateControl, valBtnPress, listPress, command, feedback })
-                    }, 10000)
-                    break;
-            }
-        } else {
-            if (isNaN(stateControl.listPress[0])) {
-                lengthList = 0;
-            }
-            switch (lengthList) {
-                case 0: case 4:
-                    listPress = [stateControl.valBtnPress];
-                    command = []
-                    valBtnPress = '';
-                    feedback = '';
-                    setStateControl({ ...stateControl, valBtnPress, listPress, command, feedback })
-                    idSetTimeout = setTimeout(() => {
-                        command = listPress;
-                        listPress = []
-                        valBtnPress = ''
-                        feedback = '';
-                        setStateControl({ ...stateControl, valBtnPress, listPress, command, feedback })
-                    }, 3000)
-                    break;
-                case 1: case 2:
-                    listPress = stateControl.listPress.concat(stateControl.valBtnPress);
-                    command = []
-                    valBtnPress = '';
-                    feedback = '';
-                    setStateControl({ ...stateControl, valBtnPress, listPress, command, feedback })
-                    idSetTimeout = setTimeout(() => {
-                        command = listPress;
-                        listPress = []
+        if (btnPress) {
+            let valBtnPress = '';
+            let listPress = [];
+            let command = [];
+            if (isNaN(stateControl.valBtnPress)) {
+                let lengthList = stateControl.listPress.length
+                switch (lengthList) {
+                    case 0: case 1: case 2: case 3: case 4:
+                        command = [stateControl.valBtnPress]
                         valBtnPress = '';
-                        feedback = '';
-                        setStateControl({ ...stateControl, valBtnPress, listPress, command, feedback })
-                    }, 3000)
-                    break;
-                case 3:
-                    listPress = stateControl.listPress.concat(stateControl.valBtnPress);
-                    command = listPress;
-                    valBtnPress = '';
-                    feedback = '';
-                    setStateControl({ ...stateControl, valBtnPress, listPress, command, feedback })
-                    idSetTimeout = setTimeout(() => {
-                        command = listPress;
                         listPress = [];
+                        setStateControl({ ...stateControl, valBtnPress, listPress, command })
+                        break;
+                }
+            } else {
+                switch (stateControl.listPress.length) {
+                    case 0: case 4:
+                        listPress = [stateControl.valBtnPress];
                         valBtnPress = '';
-                        feedback = '';
-                        setStateControl({ ...stateControl, valBtnPress, listPress, command, feedback })
-                    }, 1000)
-                    break;
-                default: break;
+                        setStateControl({ ...stateControl, valBtnPress, listPress })
+                        break;
+                    case 1: case 2:
+                        listPress = stateControl.listPress.concat(stateControl.valBtnPress);
+                        valBtnPress = '';
+                        setStateControl({ ...stateControl, valBtnPress, listPress })
+                        break;
+                    case 3:
+                        listPress = stateControl.listPress.concat(stateControl.valBtnPress);
+                        valBtnPress = '';
+                        setStateControl({ ...stateControl, valBtnPress, listPress })
+                        break;
+                    default: break;
+                }
             }
         }
-        return () => clearTimeout(idSetTimeout)
+        setBtnPress(false);
     }, [btnPress])
+
+    useEffect(() => {
+        const idTimer = setTimeout(() => {
+            const command = stateControl.listPress
+            const listPress = [];
+            setStateControl({ ...stateControl, listPress, command })
+        }, 2000);
+        return () => {
+            clearTimeout(idTimer)
+        }
+    }, [btnPress])
+
 
     const styleCase = {
         position: 'relative',

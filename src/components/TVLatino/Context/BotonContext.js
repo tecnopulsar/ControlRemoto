@@ -1,8 +1,6 @@
 import { createContext } from "react";
 
-export const botonPressedInit = {
-  btnPressed: false
-};
+export const botonPressedInit = false;
 
 const BotonContext = createContext(botonPressedInit);
 

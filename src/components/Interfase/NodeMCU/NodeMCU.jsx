@@ -8,7 +8,7 @@ const initialSettings =
     ip: '192.168.1.15',
     wifi: 'Tel1976',
     password: 'tecnopulsar76',
-    url: 'http://192.168.1.15/api/nodemcu'
+    url: 'http://192.168.1.15/api/nodemcu'  // Cors Arduino server.sendHeader("Access-Control-Allow-Origin", "*");
 }
 
 function NodeMCU() {

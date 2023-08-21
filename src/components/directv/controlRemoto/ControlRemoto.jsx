@@ -43,88 +43,58 @@ import img_case from './img/case.svg'
 import { Box } from "@mui/material";
 
 const ControlRemoto = () => {
-    const [cmdReady, setCmdReady] = useState(false)                     //Flag de comando listo para transmitirse
-    const [displayList, setDisplayList] = useState(false)       //Clear Text info lista de botnes pulsados
     const [btnPress, setBtnPress] = useState(botonPressedInit)                     //Flag de boton pulsado
     const { stateControl, setStateControl } = useContext(StateContext)
 
 
     useEffect(() => {
-        let valBtnPress = '';
-        let listPress = [];
-        let lengthList = stateControl.listPress.length
-        let command = [];
-        let idSetTimeout;                      //Para permitir el reset del btnPress
-        if (isNaN(stateControl.valBtnPress)) {
-            setDisplayList(true)
-            let lengthList = stateControl.listPress.length
-            switch (lengthList) {
-                case 0: case 1: case 2: case 3: case 4:
-                    listPress = [stateControl.valBtnPress]             //La lista se limpia por interfaz grafica
-                    command = [stateControl.valBtnPress]
-                    valBtnPress = '';
-                    setStateControl({ ...stateControl, valBtnPress, listPress, command })
-                    setCmdReady(true)
-                    idSetTimeout = setTimeout(() => {
-                        setDisplayList(false)
+        if (btnPress) {
+            let valBtnPress = '';
+            let listPress = [];
+            let command = [];
+            if (isNaN(stateControl.valBtnPress)) {
+                let lengthList = stateControl.listPress.length
+                switch (lengthList) {
+                    case 0: case 1: case 2: case 3: case 4:
+                        command = [stateControl.valBtnPress]
+                        valBtnPress = '';
                         listPress = [];
                         setStateControl({ ...stateControl, valBtnPress, listPress, command })
-                    }, 2000)
-                    break;
-            }
-
-        } else {
-            setDisplayList(true)
-            if (isNaN(stateControl.listPress[0])) {
-                lengthList = 0;
-            }
-            switch (lengthList) {
-                case 0: case 4:
-                    listPress = [stateControl.valBtnPress];
-                    command = []
-                    valBtnPress = '';
-                    setStateControl({ ...stateControl, valBtnPress, listPress, command })
-                    idSetTimeout = setTimeout(() => {
-                        command = listPress;
-                        listPress = []
+                        break;
+                }
+            } else {
+                switch (stateControl.listPress.length) {
+                    case 0: case 4:
+                        listPress = [stateControl.valBtnPress];
                         valBtnPress = '';
-                        setCmdReady(true)
-                        setDisplayList(false)
-                        setStateControl({ ...stateControl, valBtnPress, listPress, command })
-                    }, 3000)
-                    break;
-                case 1: case 2:
-                    listPress = stateControl.listPress.concat(stateControl.valBtnPress);
-                    command = []
-                    valBtnPress = '';
-                    setStateControl({ ...stateControl, valBtnPress, listPress, command })
-                    idSetTimeout = setTimeout(() => {
-                        command = listPress;
-                        listPress = []
+                        setStateControl({ ...stateControl, valBtnPress, listPress })
+                        break;
+                    case 1: case 2:
+                        listPress = stateControl.listPress.concat(stateControl.valBtnPress);
                         valBtnPress = '';
-                        setCmdReady(true)
-                        setDisplayList(false)
-                        setStateControl({ ...stateControl, valBtnPress, listPress, command })
-                    }, 3000)
-                    break;
-                case 3:
-                    listPress = stateControl.listPress.concat(stateControl.valBtnPress);
-                    command = listPress;
-                    valBtnPress = '';
-                    setCmdReady(true)
-                    setStateControl({ ...stateControl, valBtnPress, listPress, command })
-                    idSetTimeout = setTimeout(() => {
-                        command = listPress;
-                        listPress = [];
+                        setStateControl({ ...stateControl, valBtnPress, listPress })
+                        break;
+                    case 3:
+                        listPress = stateControl.listPress.concat(stateControl.valBtnPress);
                         valBtnPress = '';
-                        setDisplayList(false)
-                        setStateControl({ ...stateControl, valBtnPress, listPress, command })
-                    }, 1000)
-                    break;
-                default: break;
+                        setStateControl({ ...stateControl, valBtnPress, listPress })
+                        break;
+                    default: break;
+                }
             }
         }
-        return () => clearTimeout(idSetTimeout)
+        setBtnPress(false);
+    }, [btnPress])
+
+    useEffect(() => {
+        const idTimer = setTimeout(() => {
+            const command = stateControl.listPress
+            const listPress = [];
+            setStateControl({ ...stateControl, listPress, command })
+        }, 2000);
+        return () => {
+            clearTimeout(idTimer)
+        }
     }, [btnPress])
 
     const styleCase = {

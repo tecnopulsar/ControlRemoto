@@ -15,8 +15,10 @@ export default function App() {
   return (
     <StateContext.Provider value={{ stateControl, setStateControl }}>
       <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-        {proveedor==='directv'&& <ControlRemotoDirectv />}
-        {proveedor==='tvlatino'&& <ControlRemotoTVLatino />}
+        {/* {proveedor==='directv'&& <ControlRemotoDirectv />} */}
+        {/* {proveedor==='tvlatino'&& <ControlRemotoTVLatino />} */}
+        <ControlRemotoDirectv />
+        <ControlRemotoTVLatino />
         {/* <Canales /> */}
         <NodeMCU/>
       </Box>

@@ -33,14 +33,12 @@ import Dash from "./dash";
 import Del from "./Del";
 import img_case from './img/case.svg'
 import StateContext from "../../Context/StateContext";
-import BotonContext, {botonPressedInit} from '../Context/BotonContext'
+import BotonContext, { botonPressedInit } from '../Context/BotonContext'
 import { Box } from "@mui/material";
 
 const ControlRemoto = () => {
-    const [cmdReady, setCmdReady] = useState(false)                     //Flag de comando listo para transmitirse
-    const [displayList, setDisplayList] = useState(false)       //Clear Text info lista de botnes pulsados
     const [btnPress, setBtnPress] = useState(botonPressedInit)                     //Flag de boton pulsado
-    const {stateControl, setStateControl} = useContext(StateContext)
+    const { stateControl, setStateControl } = useContext(StateContext)
 
 
     useEffect(() => {
@@ -48,27 +46,24 @@ const ControlRemoto = () => {
         let listPress = [];
         let lengthList = stateControl.listPress.length
         let command = [];
+        let feedback = '';
         let idSetTimeout;                      //Para permitir el reset del btnPress
         if (isNaN(stateControl.valBtnPress)) {
-            setDisplayList(true)
             let lengthList = stateControl.listPress.length
             switch (lengthList) {
                 case 0: case 1: case 2: case 3: case 4:
                     listPress = [stateControl.valBtnPress]             //La lista se limpia por interfaz grafica
                     command = [stateControl.valBtnPress]
                     valBtnPress = '';
-                    setStateControl({ ...stateControl, valBtnPress, listPress, command })
-                    setCmdReady(true)
+                    feedback = '';
+                    setStateControl({ ...stateControl, valBtnPress, listPress, command, feedback })
                     idSetTimeout = setTimeout(() => {
-                        setDisplayList(false)
                         listPress = [];
-                        setStateControl({ ...stateControl, valBtnPress, listPress, command })
-                    }, 2000)
+                        setStateControl({ ...stateControl, valBtnPress, listPress, command, feedback })
+                    }, 10000)
                     break;
             }
-
         } else {
-            setDisplayList(true)
             if (isNaN(stateControl.listPress[0])) {
                 lengthList = 0;
             }
@@ -77,42 +72,42 @@ const ControlRemoto = () => {
                     listPress = [stateControl.valBtnPress];
                     command = []
                     valBtnPress = '';
-                    setStateControl({ ...stateControl, valBtnPress, listPress, command })
+                    feedback = '';
+                    setStateControl({ ...stateControl, valBtnPress, listPress, command, feedback })
                     idSetTimeout = setTimeout(() => {
                         command = listPress;
                         listPress = []
-                        valBtnPress = '';
-                        setCmdReady(true)
-                        setDisplayList(false)
-                        setStateControl({ ...stateControl, valBtnPress, listPress, command })
+                        valBtnPress = ''
+                        feedback = '';
+                        setStateControl({ ...stateControl, valBtnPress, listPress, command, feedback })
                     }, 3000)
                     break;
                 case 1: case 2:
                     listPress = stateControl.listPress.concat(stateControl.valBtnPress);
                     command = []
                     valBtnPress = '';
-                    setStateControl({ ...stateControl, valBtnPress, listPress, command })
+                    feedback = '';
+                    setStateControl({ ...stateControl, valBtnPress, listPress, command, feedback })
                     idSetTimeout = setTimeout(() => {
                         command = listPress;
                         listPress = []
                         valBtnPress = '';
-                        setCmdReady(true)
-                        setDisplayList(false)
-                        setStateControl({ ...stateControl, valBtnPress, listPress, command })
+                        feedback = '';
+                        setStateControl({ ...stateControl, valBtnPress, listPress, command, feedback })
                     }, 3000)
                     break;
                 case 3:
                     listPress = stateControl.listPress.concat(stateControl.valBtnPress);
                     command = listPress;
                     valBtnPress = '';
-                    setCmdReady(true)
-                    setStateControl({ ...stateControl, valBtnPress, listPress, command })
+                    feedback = '';
+                    setStateControl({ ...stateControl, valBtnPress, listPress, command, feedback })
                     idSetTimeout = setTimeout(() => {
                         command = listPress;
                         listPress = [];
                         valBtnPress = '';
-                        setDisplayList(false)
-                        setStateControl({ ...stateControl, valBtnPress, listPress, command })
+                        feedback = '';
+                        setStateControl({ ...stateControl, valBtnPress, listPress, command, feedback })
                     }, 1000)
                     break;
                 default: break;
@@ -122,7 +117,7 @@ const ControlRemoto = () => {
     }, [btnPress])
 
     const styleCase = {
-        position:'relative',
+        position: 'relative',
         width: '298px',
         height: '800px',
         border: '2xp solid red',
@@ -134,17 +129,17 @@ const ControlRemoto = () => {
     return (
         <BotonContext.Provider value={{ btnPress, setBtnPress }}>
             <Box sx={styleCase}>
-                    <On />
-                    <Mute />
-                    <Red /><Green /><Yellow /><Blue />
-                    <Channelup /><Channeldown /><Volup /><Voldown />
-                    <Menu /><Info />
-                    <Left /><Up /><Ok /><Right /><Down />
-                    <Home /><Exit />
-                    <Nro1 /><Nro2 /><Nro3 />
-                    <Nro4 /><Nro5 /><Nro6 />
-                    <Nro7 /><Nro8 /><Nro9 />
-                    <Dash /><Nro0 /><Del /><Logo />
+                <On />
+                <Mute />
+                <Red /><Green /><Yellow /><Blue />
+                <Channelup /><Channeldown /><Volup /><Voldown />
+                <Menu /><Info />
+                <Left /><Up /><Ok /><Right /><Down />
+                <Home /><Exit />
+                <Nro1 /><Nro2 /><Nro3 />
+                <Nro4 /><Nro5 /><Nro6 />
+                <Nro7 /><Nro8 /><Nro9 />
+                <Dash /><Nro0 /><Del /><Logo />
             </Box>
         </BotonContext.Provider>
     );

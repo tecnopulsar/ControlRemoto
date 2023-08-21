@@ -6,6 +6,7 @@ export const stateControlInit = {
   listPress: [],
   command: [],
   commandSended: false, //El command[] fue enviado?
+  feedback:'',
   ledEmitting: false, //Luz testigo control remoto
   config:{
     ledFlashing:1000,

@@ -3,7 +3,6 @@ import exit from './img/exit.svg'
 import StateContext from '../../Context/StateContext';
 import BotonContext from '../Context/BotonContext'
 
-
 function Exit() {
     const { stateControl, setStateControl } = useContext(StateContext)
     const { btnPress, setBtnPress } = useContext(BotonContext)

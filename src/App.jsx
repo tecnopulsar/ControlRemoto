@@ -17,7 +17,7 @@ export default function App() {
       <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
         {/* {proveedor==='directv'&& <ControlRemotoDirectv />} */}
         {/* {proveedor==='tvlatino'&& <ControlRemotoTVLatino />} */}
-        <ControlRemotoDirectv />
+        {/* <ControlRemotoDirectv /> */}
         <ControlRemotoTVLatino />
         {/* <Canales /> */}
         <NodeMCU/>

@@ -39,10 +39,17 @@ import { Box } from "@mui/material";
 const ControlRemoto = () => {
     const [btnPress, setBtnPress] = useState(botonPressedInit)                     //Flag de boton pulsado
     const { stateControl, setStateControl } = useContext(StateContext)
+    const [keyDown, setKeyDown] = useState('')
+
+    const handleKeyDown = (event) =>{
+        setKeyDown(event.key)
+    }
 
     useEffect(() => {
         const equipo = "TVLatino"
         setStateControl({ ...stateControl, equipo })
+        document.addEventListener('keydown',handleKeyDown)
+        return ()=>document.removeEventListener('keydown',handleKeyDown)
     }, [])
 
     useEffect(() => {
@@ -90,17 +97,70 @@ const ControlRemoto = () => {
                 const command = stateControl.listPress
                 const listPress = [];
                 setStateControl({ ...stateControl, listPress, command })
-                console.log('borrado')
             }
             }, 2000);
             return () => {
                 clearTimeout(idTimer)
-                console.log('borrado clear')
-
         }
     }, [btnPress])
 
-
+    useEffect(() => {
+        let command='';
+        switch (keyDown){
+            // Numeros 
+            case 1:
+                command = '1';
+                break;
+            case 2:
+                command = '2';
+                break;
+            case 3:
+                command = '3';
+                break;
+            case 4:
+                command = '4';
+                break;
+            case 5:
+                command = '5';
+                break;
+            case 6:
+                command = '6';
+                break;
+            case 7:
+                command = '7';
+                break;
+            case 8:
+                command = '8';
+                break;
+            case 9:
+                command = '9';
+                break;
+            case 0:
+                command = '0';
+                break;
+                // Teclado
+            case 'o':
+                command = 'On';
+                break;
+            case 'm':
+                command = 'Mute';
+                break;
+            case 'ArrowLeft':
+                command = 'Volup';
+                break;
+            case 'ArrowRight':
+                command = 'Voldown';
+                break;
+            case 'ArrowUp':
+                command = 'Channelup';
+                break;
+            case 'ArrowDown':
+                command = 'Channeldown';
+                break;
+        }
+        setStateControl({...stateControl, command})
+    }, [keyDown])
+    
     const styleCase = {
         position: 'relative',
         width: '298px',

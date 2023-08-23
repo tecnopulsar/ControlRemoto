@@ -53,15 +53,16 @@ function NodeMCU() {
         }
     }, [command])
 
+    // Axios Request
     useEffect(() => {
         let mensaje="";
         if (commandIr.length !== 0) {
             commandIr.forEach((cmd) => mensaje += `comando=${cmd}&`)
             console.log(mensaje)
-                axios
-                    .get(`${url}?${mensaje}`)
-                    .then(response => console.log(response.data))
-            setCommandIr('')
+            //     axios
+            //         .get(`${url}?${mensaje}`)
+            //         .then(response => console.log(response.data))
+            // setCommandIr('')
         }
     }, [commandIr])
 

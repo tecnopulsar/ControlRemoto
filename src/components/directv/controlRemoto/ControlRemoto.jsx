@@ -92,12 +92,17 @@ const ControlRemoto = () => {
 
     useEffect(() => {
         const idTimer = setTimeout(() => {
-            const command = stateControl.listPress
-            const listPress = [];
-            setStateControl({ ...stateControl, listPress, command })
-        }, 2000);
-        return () => {
-            clearTimeout(idTimer)
+            if(stateControl.listPress.length !==0){
+                const command = stateControl.listPress
+                const listPress = [];
+                setStateControl({ ...stateControl, listPress, command })
+                console.log('borrado')
+            }
+            }, 2000);
+            return () => {
+                clearTimeout(idTimer)
+                console.log('borrado clear')
+
         }
     }, [btnPress])
 

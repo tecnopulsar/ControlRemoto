@@ -6,6 +6,7 @@ import ControlRemotoUniversalMini from './components/universalMini/ControlRemoto
 import React, { useState } from 'react';
 import { Box } from '@mui/material';
 import NodeMCU from './components/Interfase/NodeMCU/NodeMCU';
+import KeyboardComponent from './components/teclado/Keyboard';
 
 
 export default function App() {
@@ -19,10 +20,11 @@ export default function App() {
         {/* {proveedor==='directv'&& <ControlRemotoDirectv />} */}
         {/* {proveedor==='tvlatino'&& <ControlRemotoTVLatino />} */}
         {/* <ControlRemotoDirectv /> */}
-        {/* <ControlRemotoTVLatino /> */}
-        <ControlRemotoUniversalMini />
+        <ControlRemotoTVLatino />
+        {/* <ControlRemotoUniversalMini /> */}
         {/* <Canales /> */}
         <NodeMCU/>
+        <KeyboardComponent/>
       </Box>
     </StateContext.Provider>
   );

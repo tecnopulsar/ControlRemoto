@@ -21,6 +21,9 @@ const char* password = STAPSK;
 
 ESP8266WebServer server(80);
 
+  // Código IR del botón de encendido del televisor Panasonic (ejemplo)
+  unsigned int panasonicPowerCode = 0x1FED827D;
+  
 //const int led = 4;
 
 void handleRoot() {
@@ -34,7 +37,8 @@ void handleNodemcu() {
   for (uint8_t i = 0; i < server.args(); i++) { 
     String codeString = server.arg(i);
     uint32_t code = strtoul(codeString.c_str(), NULL, 16);
-    irsend.sendNEC(code,32);
+    //irsend.sendNEC(code,48);
+    irsend.sendPanasonic(PanasonicAddress,PanasonicPower);
     message += " " + server.argName(i) + ": " + server.arg(i) + "\n"; }
   server.send(200, "text/plain", message);
     //if (server.argName(i) == "command") {

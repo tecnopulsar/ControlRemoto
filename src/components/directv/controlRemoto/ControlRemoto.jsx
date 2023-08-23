@@ -46,6 +46,10 @@ const ControlRemoto = () => {
     const [btnPress, setBtnPress] = useState(botonPressedInit)                     //Flag de boton pulsado
     const { stateControl, setStateControl } = useContext(StateContext)
 
+    useEffect(() => {
+        const equipo = "directv"
+      setStateControl({...stateControl, equipo})
+    }, [])
 
     useEffect(() => {
         if (btnPress) {

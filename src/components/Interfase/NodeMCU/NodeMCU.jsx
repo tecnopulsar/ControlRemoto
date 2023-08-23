@@ -18,14 +18,14 @@ function NodeMCU() {
     const { stateControl, setStateControl } = useContext(StateContext)
     const [settings, setSettings] = useState(initialSettingsNodeMCU)
     const { url } = settings
-    const { proveedor, command } = stateControl
+    const { equipo, command } = stateControl
     const [commandIr, setCommandIr] = useState([])
 
     const translateCommand = (cmd) => {
         if (isNaN(cmd)) {
-            return IrCodes[`${proveedor}`][`${cmd}`]
+            return IrCodes[`${equipo}`][`${cmd}`]
         } else {
-            return IrCodes[`${proveedor}`][`Nro${cmd}`]
+            return IrCodes[`${equipo}`][`Nro${cmd}`]
         }
     }
 

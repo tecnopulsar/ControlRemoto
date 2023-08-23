@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import Logo from "./Logo";
 import On from "./On";
 import Mute from "./Mute";
 import Red from "./Red";
@@ -19,18 +18,6 @@ import Down from "./Down";
 import Ok from "./Ok";
 import Left from "./Left";
 import Right from "./Right";
-import Nro1 from "./Nro1";
-import Nro2 from "./Nro2";
-import Nro3 from "./Nro3";
-import Nro4 from "./Nro4";
-import Nro5 from "./Nro5";
-import Nro6 from "./Nro6";
-import Nro7 from "./Nro7";
-import Nro8 from "./Nro8";
-import Nro9 from "./Nro9";
-import Nro0 from "./Nro0";
-import Dash from "./dash";
-import Del from "./Del";
 import img_case from './img/case.svg'
 import StateContext from "../../Context/StateContext";
 import BotonContext, { botonPressedInit } from '../Context/BotonContext'
@@ -41,7 +28,7 @@ const ControlRemoto = () => {
     const { stateControl, setStateControl } = useContext(StateContext)
 
     useEffect(() => {
-        const equipo = "TVLatino"
+        const equipo = "TVPanasonic"
       setStateControl({...stateControl, equipo})
     }, [])
 
@@ -98,8 +85,8 @@ const ControlRemoto = () => {
 
     const styleCase = {
         position: 'relative',
-        width: '298px',
-        height: '800px',
+        width: '229px',
+        height: '499px',
         border: '2xp solid red',
         userSelect: 'none',
         backgroundImage: `url(${img_case})`,
@@ -116,10 +103,6 @@ const ControlRemoto = () => {
                 <Menu /><Info />
                 <Left /><Up /><Ok /><Right /><Down />
                 <Home /><Exit />
-                <Nro1 /><Nro2 /><Nro3 />
-                <Nro4 /><Nro5 /><Nro6 />
-                <Nro7 /><Nro8 /><Nro9 />
-                <Dash /><Nro0 /><Del /><Logo />
             </Box>
         </BotonContext.Provider>
     );

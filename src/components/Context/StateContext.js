@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
 export const stateControlInit = {
-  proveedor:'TVLatino',
+  equipo:'TVLatino',
   valBtnPress: "",
   listPress: [],
   command: [],

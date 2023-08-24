@@ -6,6 +6,7 @@ import ControlRemotoUniversalMini from './components/universalMini/ControlRemoto
 import React, { useState } from 'react';
 import { Box } from '@mui/material';
 import NodeMCU from './components/Interfase/NodeMCU/NodeMCU';
+import Canales from './components/canalesTV/Canales';
 
 
 export default function App() {
@@ -21,7 +22,7 @@ export default function App() {
         {/* <ControlRemotoDirectv /> */}
         <ControlRemotoTVLatino />
         {/* <ControlRemotoUniversalMini /> */}
-        {/* <Canales /> */}
+        <Canales />
         <NodeMCU/>
       </Box>
     </StateContext.Provider>

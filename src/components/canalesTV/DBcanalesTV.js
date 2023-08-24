@@ -45,6 +45,7 @@ import img_canal7jujuy  from "./img/canal7jujuy.png"
 import img_canal7mendoza  from "./img/canal7mendoza.png"
 import img_canal9mendoza  from "./img/canal9mendoza.png"
 import img_canal9  from "./img/canal9.png"
+import img_cablenoticias  from "./img/cablenoticias.png"
 import img_canal26  from "./img/canal26.png"
 import img_canaldelaciudad  from "./img/canaldelaciudad.png"
 import img_canalluz  from "./img/canalluz.png"
@@ -63,6 +64,7 @@ import img_cinecanal  from "./img/cinecanal.png"
 import img_ciudadmagazine  from "./img/ciudadmagazine.png"
 import img_cnnchile  from "./img/cnnchile.png"
 import img_comedycentral  from "./img/comedycentral.png"
+import img_construirtv  from "./img/construirtv.png"
 import img_cronicahd  from "./img/cronicahd.png"
 import img_daystar  from "./img/daystar.png"
 import img_depelicula  from "./img/depelicula.png"
@@ -72,7 +74,8 @@ import img_directv  from "./img/directv.png"
 import img_directvcinema  from "./img/directvcinema.png"
 import img_discoverkids  from "./img/discoverkids.png"
 import img_discovery  from "./img/discovery.png"
-import img_discoverworld  from "./img/img_discoverworld.png"
+import img_discoveryhh  from "./img/discoveryhh.png"
+import img_discoveryworld  from "./img/discoveryworld.png"
 import img_discoverytheater  from "./img/discoverytheater.png"
 import img_discoveryturbo  from "./img/discoveryturbo.png"
 import img_disneychannel  from "./img/disneychannel.png"
@@ -157,7 +160,6 @@ import img_nationalgeographic  from "./img/nationalgeographic.png"
 import img_nbaleaguepass  from "./img/nbaleaguepass.png"
 import img_nbatv  from "./img/nbatv.png"
 import img_nbatvhd  from "./img/nbatvhd.png"
-import img_nettv  from "./img/nettv.png"
 import img_nflsundayticket  from "./img/nflsundayticket.png"
 import img_nick  from "./img/nick.png"
 import img_nickelodeonhd  from "./img/nickelodeonhd.png"
@@ -593,7 +595,7 @@ export const canalesTV = {
         ch_1732: {
           name: "Discovery Channel HD",
           nro: "1732",
-          img: img_DiscoveryChanne,
+          img: img_discovery,
           favorito:false,
           show:true,
         },
@@ -602,7 +604,7 @@ export const canalesTV = {
         ch_1229: {
           name: "Discovery Home & Health HD",
           nro: "1229",
-          img: img_discovery,
+          img: img_discoveryhh,
           favorito:false,
           show:true,
         },
@@ -629,7 +631,7 @@ export const canalesTV = {
         ch_1738: {
           name: "Discovery World HD",
           nro: "1738",
-          img: img_discoverworld,
+          img: img_discoveryworld,
           favorito:false,
           show:true,
         },
@@ -1247,15 +1249,6 @@ export const canalesTV = {
         },
       },
       {
-        ch_1677: {
-          name: "NBA TV",
-          nro: "1677",
-          img: img_NBATV,
-          favorito:false,
-          show:true,
-        },
-      },
-      {
         ch_1629: {
           name: "TyC Sports HD",
           nro: "1629",
@@ -1324,7 +1317,7 @@ export const canalesTV = {
         ch_634: {
           name: "Futbol de Paraguay",
           nro: "634",
-          img: img_futboldeparaguay,
+          img: img_ticosports,
           favorito:false,
           show:true,
         },
@@ -1605,7 +1598,7 @@ export const canalesTV = {
         ch_134: {
           name: "Canal 3 de Rosario",
           nro: "134",
-          img: img_canal3Rosario,
+          img: img_rosario3,
           favorito:false,
           show:true,
         },
@@ -1650,7 +1643,7 @@ export const canalesTV = {
         ch_728: {
           name: "Canal Rural",
           nro: "728",
-          img: img_canalRural,
+          img: img_rural,
           favorito:false,
           show:true,
         },
@@ -1787,7 +1780,7 @@ export const canalesTV = {
         ch_727: {
           name: "Cable Noticias",
           nro: "727",
-          img: img_cableNoticias,
+          img: img_cablenoticias,
           favorito:false,
           show:true,
         },
@@ -1805,7 +1798,7 @@ export const canalesTV = {
         ch_772: {
           name: "Caracol",
           nro: "772",
-          img: img_Caracol,
+          img: img_caracolinternacional,
           favorito:false,
           show:true,
         },
@@ -1859,7 +1852,7 @@ export const canalesTV = {
         ch_729: {
           name: "ConstruirTV",
           nro: "729",
-          img: img_ConstruirTV,
+          img: img_construirtv,
           favorito:false,
           show:true,
         },
@@ -1913,7 +1906,7 @@ export const canalesTV = {
         ch_773: {
           name: "El Tiempo TV",
           nro: "773",
-          img: img_ElTiempoTV,
+          img: img_eltiempotelevision,
           favorito:false,
           show:true,
         },

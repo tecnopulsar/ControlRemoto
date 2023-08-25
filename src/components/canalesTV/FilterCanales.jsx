@@ -23,4 +23,4 @@ export default function FilterCanales({ setFilterSelect }) {
 // Categorias de canales
 const categorias = ['Deportes', 'HD', 'PREMIUM', 'Nacionales',
     'Internacionales', 'Peliculas', 'Variedades',
-    'Religiosos', 'Infantiles', 'Radio'];
+    'Religiosos', 'Infantiles', 'Radio', 'Favoritos'];

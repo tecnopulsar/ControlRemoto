@@ -11,8 +11,8 @@ import Canales from './components/canalesTV/Canales';
 
 export default function App() {
   const [stateControl, setStateControl] = useState(stateControlInit)
-  const {proveedor} = stateControl
-  
+  const { proveedor } = stateControl
+
 
   return (
     <StateContext.Provider value={{ stateControl, setStateControl }}>
@@ -23,8 +23,8 @@ export default function App() {
         <ControlRemotoTVLatino />
         {/* <ControlRemotoUniversalMini /> */}
         <Canales />
-        <NodeMCU/>
-      </Box>
+        <NodeMCU />
+      </Box>r
     </StateContext.Provider>
   );
 }

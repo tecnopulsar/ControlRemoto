@@ -3007,7 +3007,7 @@ export const canalesDirecTV = [
           category:"radio",
         },
       },
-};
+    ];
 
 const canalesDirecTVContext = createContext(canalesDirecTV);
 

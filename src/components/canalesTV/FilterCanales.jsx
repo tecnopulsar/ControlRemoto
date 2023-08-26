@@ -14,13 +14,13 @@ export default function FilterCanales({ setFilterSelect }) {
             }}
             id="combo-box-demo"
             options={categorias}
-            sx={{ width: 300 }}
+            sx={{ width: 400 }}
             renderInput={(params) => <TextField {...params} label="Categorias" />}
         />
     );
 }
 
 // Categorias de canales
-const categorias = ['Deportes', 'HD', 'PREMIUM', 'Nacionales',
-    'Internacionales', 'Peliculas', 'Variedades',
-    'Religiosos', 'Infantiles', 'Radio', 'Favoritos'];
+const categorias = ['favoritos','deportes', 'hd', 'premium', 'nacionales',
+    'internacionales', 'peliculas', 'variedades',
+    'religiosos', 'infantiles', 'radio','ocultos'];

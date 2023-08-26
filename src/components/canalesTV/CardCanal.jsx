@@ -6,19 +6,25 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 import StateContext from '../Context/StateContext';
-
-import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
 import canalesDirecTVContext from '../directv/Context/CanalesTVContext';
 
-export default function CardCanal({ canal, filterSelect }) {
+import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
+import ControlPointIcon from '@mui/icons-material/ControlPoint';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+
+
+export default function CardCanal({ canal }) {
     const { name, nro, img, favorite, show } = canal;
     const { stateControl, setStateControl } = React.useContext(StateContext)
     const { canales, setCanales } = React.useContext(canalesDirecTVContext)
 
     const [isFavorite, setIsFavorite] = React.useState(false)
+    const [isShow, setIsShow] = React.useState(true)
 
+    //Carga el boton si es o no favorito
     React.useEffect(() => {
         setIsFavorite(favorite)
+        setIsShow(show)
     }, [])
 
     const handleClick = () => {
@@ -30,29 +36,28 @@ export default function CardCanal({ canal, filterSelect }) {
         const newIsFavorite = !isFavorite
         setIsFavorite(newIsFavorite)
 
-        canales[`${filterSelect}`].forEach(canal => {
-            const [clave, objeto] = Object.entries(canal)[0];
+        canales.forEach(ch => {
+            const [clave, objeto] = Object.entries(ch)[0];
             if (objeto.nro === nro) objeto.favorite = newIsFavorite
         });
-        setCanales(canales)
-        // Como los canales favoritos son relativamente pocos, opto por 
-        //agregar y eliminarlos al seleccionarlos del filtro favoritos
-        if (newIsFavorite) {
-            const newCanal =       {
-                [`ch_${nro}`]: {
-                  "name": name,
-                  "nro": nro,
-                  "img": img,
-                  "favorite": true,
-                  "show": show,
-                }
-              }
-            const Favoritos = [...canales.Favoritos, newCanal]
-            setCanales({...canales,Favoritos})
-        } else {
-            const Favoritos = canales.Favoritos.filter(canal=>canal.nro!==nro)
-            console.log(Favoritos)
-        }
+    }
+
+    const handleClickShow = () => {
+        setIsShow(false)
+
+        canales.forEach(ch => {
+            const [clave, objeto] = Object.entries(ch)[0];
+            if (objeto.nro === nro) objeto.show = false
+        });
+    }
+
+    const handleClickNotShow = () => {
+        setIsShow(true)
+
+        canales.forEach(ch => {
+            const [clave, objeto] = Object.entries(ch)[0];
+            if (objeto.nro === nro) objeto.show = true
+        });
     }
 
     return (
@@ -79,11 +84,28 @@ export default function CardCanal({ canal, filterSelect }) {
                     </Typography>
                     <BookmarkAddOutlinedIcon sx={{
                         color: isFavorite ? 'white' : 'black',
-                        background: isFavorite ? 'orange' : 'white', opacity: '0.6',
+                        background: isFavorite ? 'orange' : 'null', opacity: '0.6',
                         position: 'absolute', right: '0', top: '0'
                     }}
                         aria-label="add favoritos"
                         onClick={handleClickFavorite} />
+                    {isShow ?
+                        <RemoveCircleOutlineIcon sx={{
+                        color: 'red',
+                         opacity: '0.3',
+                        position: 'absolute', right: '0', bottom: '0'
+                        }}
+                        aria-label="remove channel"
+                        onClick={handleClickShow} />  
+                        :
+                        <ControlPointIcon sx={{
+                            color: 'green',
+                             opacity: '0.6',
+                            position: 'absolute', right: '0', bottom: '0'
+                            }}
+                            aria-label="remove channel"
+                            onClick={handleClickNotShow} />
+                    }
                 </CardContent>
             </CardActionArea>
         </Card>

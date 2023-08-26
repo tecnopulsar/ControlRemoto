@@ -21,6 +21,28 @@ export default function CardCanal({ canal }) {
     const [isFavorite, setIsFavorite] = React.useState(false)
     const [isShow, setIsShow] = React.useState(true)
 
+    // Almacenaje Local
+    const saveDataToLocalStorage = () => {
+        try {
+            localStorage.setItem('canalesTV', JSON.stringify(canales))
+        } catch (error) {
+            if (error instanceof DOMException && error.code === 22) {
+                // Error de cuota excedida
+                console.error("Error: Quota exceeded!");
+            } else if (error instanceof DOMException && error.code === 18) {
+                // Acceso denegado, probablemente debido a una configuración del navegador
+                console.error("Error: Access to localStorage is denied!");
+            } else {
+                // Otros errores
+                console.error("An unknown error occurred: ", error);
+            }
+        }
+    }
+    React.useEffect(() => {
+        saveDataToLocalStorage()
+    }, [canal])
+    // Fin Almacenaje Local
+
     //Carga el boton si es o no favorito
     React.useEffect(() => {
         setIsFavorite(favorite)
@@ -91,18 +113,18 @@ export default function CardCanal({ canal }) {
                         onClick={handleClickFavorite} />
                     {isShow ?
                         <RemoveCircleOutlineIcon sx={{
-                        color: 'red',
-                         opacity: '0.3',
-                        position: 'absolute', right: '0', bottom: '0'
+                            color: 'red',
+                            opacity: '0.3',
+                            position: 'absolute', right: '0', bottom: '0'
                         }}
-                        aria-label="remove channel"
-                        onClick={handleClickShow} />  
+                            aria-label="remove channel"
+                            onClick={handleClickShow} />
                         :
                         <ControlPointIcon sx={{
                             color: 'green',
-                             opacity: '0.6',
+                            opacity: '0.6',
                             position: 'absolute', right: '0', bottom: '0'
-                            }}
+                        }}
                             aria-label="remove channel"
                             onClick={handleClickNotShow} />
                     }

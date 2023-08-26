@@ -16,6 +16,19 @@ function Canales() {
 
   const { stateControl } = useContext(StateContext)
 
+  // Cargar estado de los canales Favoritos y Ocultos
+  const loadDataFromLocalStorage = () => {
+    const loadCanalesTV = localStorage.getItem('canalesTV')
+    ? JSON.parse(localStorage.getItem('canalesTV'))
+    : canalesDirecTV
+    setCanales(loadCanalesTV)
+  }
+  // Fin Cargar estado de los canales Favoritos y Ocultos
+  useEffect(() => {
+    loadDataFromLocalStorage()
+  }, [])
+  
+  
   useEffect(() => {
     let newCanalesFiltrados = []
     if (filterSelect === 'favoritos') {

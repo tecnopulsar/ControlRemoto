@@ -54,7 +54,7 @@ export default function App() {
         {/* <ControlRemotoUniversalMini /> */}
         <Canales />
         {/* <NodeMCU /> */}
-        <Arranger5000/>
+        {/* <Arranger5000/> */}
       </Box>r
     </StateContext.Provider>
   );
